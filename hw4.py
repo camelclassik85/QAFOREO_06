@@ -31,9 +31,9 @@
 
 '''4.6. Создайте файл my_calc.py и пропишите в нем минимум 4 функции, выполняющие базовые арифметические вычисления. 
      Примените эти функции в качестве методов в другом файле. '''
-import my_calc
+# import my_calc
 
-print(my_calc.multi(2, 3))
-print(my_calc.sum_args(2, 3, 4, 5, 5, 6))
-print(my_calc.multi(5, 6))
-print(my_calc.division(99, 0))
+# print(my_calc.multi(2, 3))
+# print(my_calc.sum_args(2, 3, 4, 5, 5, 6))
+# print(my_calc.multi(5, 6))
+# print(my_calc.division(99, 0))
