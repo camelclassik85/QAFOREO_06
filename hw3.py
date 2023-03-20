@@ -35,17 +35,18 @@
 #     - распечатайте только ключи
 #     - распечатайте только значения
 #     - распечатайте пары ключ - значение
-# my_dict = {
+#my_dict = {
 #     'title': 'newnew',
 #     'director': "dfdfdf",
 #     'year': "1985",
 #     'budget': "1200000000",
 #     'main_actor': "Me young_do",
 #     'slogan': "be or not to be"
-# }
+#}
 # print(*my_dict.keys())
 # print(*my_dict.values())
-# print(*my_dict.items())
+#for kv in my_dict.items():
+#    print(kv)
 
 #
 # 3.6. Найдите сумму всех значений в словаре my_dictionary = {'num1': 375, 'num2': 567, 'num3': -37, 'num4': 21}
