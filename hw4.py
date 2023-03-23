@@ -18,7 +18,7 @@
 '''4.3. Используя лямбда-выражение, из списка my_list = [20, -3, 15, 2, -1, -21] создайте новый список, содержащий только 
      положительные числа'''
 # my_list = [20, -3, 15, 2, -1, -21]
-# new_list = list(filter(lambda x: x > 0, my_list))
+# new_list = list(filter(lambda x: x >= 0, my_list))
 # print(new_list)
 
 '''4.4. Используя лямбда выражение, получите результат перемножения значений в предыдущем списке '''
@@ -28,6 +28,26 @@
 # print(res)
 
 '''4.5. Напишите декоратор, который высчитывает время работы функции, которую он принимает в качестве параметра '''
+# import time
+#
+#
+# def timer(func):
+#     def wrapper(*args, **kwargs):
+#         start = time.perf_counter()
+#         result = func(*args, **kwargs)
+#         print(f'spent time {time.perf_counter() - start}')
+#         return result
+#
+#     return wrapper
+#
+#
+# @timer
+# def complex_calculation():
+#     time.sleep(0.5)
+#     return "end function"
+#
+#
+# print(complex_calculation())
 
 '''4.6. Создайте файл my_calc.py и пропишите в нем минимум 4 функции, выполняющие базовые арифметические вычисления. 
      Примените эти функции в качестве методов в другом файле. '''
