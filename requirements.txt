@@ -1,0 +1,5 @@
+import pytest as pytest
+import selenium as selenium
+
+pytest == 7.2
+selenium == 4.8
