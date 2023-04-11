@@ -24,11 +24,7 @@ from selenium.webdriver.common.by import By
 #     search_list += [i.text.lower() for i in
 #                     driver.find_elements(By.XPATH, "//div[@class='pi-title fz-16 clr-text-alt m-b-10']")]
 # for j, i in enumerate(search_list):
-#     try:
-#         assert "стейк" in i
-#         print(f"element {j+1} have стейк in")
-#     except AssertionError:
-#         print(f"element {j+1} do not have стейк in")
+#     assert "стейк" in i, f"element {j+1} do not have стейк in"
 #
 # driver.quit()
 
