@@ -32,21 +32,48 @@ from selenium.webdriver.common.by import By
 '''2 Проверить наличие этого свап контейнера'''
 
 # driver = webdriver.Chrome(executable_path="driver\\chromedriver.exe")
-# def test_element_is_present():
-#     driver.get("http://ts.red-promo.ru/")
-#     time.sleep(1)
-#     try:
-#         assert driver.find_element(By.XPATH,
-#                                    "//div[@class='slick-slider slider-visibility slick-initialized slick-dotted']")
-#         print('found')
-#     except NoSuchElementException:
-#         print('No elements found')
+# driver.get("http://ts.red-promo.ru/")
+# time.sleep(1)
+# try:
+#     assert driver.find_element(By.XPATH,
+#                                 "//div[@class='slick-slider slider-visibility slick-initialized slick-dotted']")
+#     print('found')
+# except NoSuchElementException:
+#     print('No elements found')
 #
-#     driver.quit()
+# driver.quit()
 
 
 '''3 Написать разнообразные проверки на форму регистрации (для проверки сообщений о
 правильности заполнении полей формы)'''
+
+driver = webdriver.Chrome(executable_path="driver\\chromedriver.exe")
+driver.get("http://ts.red-promo.ru/")
+time.sleep(1)
+driver.find_element(By.XPATH, "(//span[@class='sci-amount'])[2]").click()
+time.sleep(1)
+driver.find_element(By.XPATH, "(//a[@data-toggle='modal-alt'])[1]").click()
+time.sleep(1)
+driver.find_element(By.XPATH, "//button[@class='btn btn-default signup-form-modal__btn w-100']").click()
+time.sleep(1)
+text_name_exp = 'Необходимо заполнить «Имя пользователя».'
+text_name_fact = driver.find_element(By.XPATH, "//div[@class='form-group field-signupform-username required "
+                                               "has-error']/div").text
+text_email_exp = 'Необходимо заполнить «Email».'
+text_email_fact = driver.find_element(By.XPATH, "//div[@class='form-group field-signupform-email required "
+                                                "has-error']/div").text
+text_password_exp = 'Необходимо заполнить «Пароль».'
+text_password_fact = driver.find_element(By.XPATH, "//div[@class='form-group field-signupform-password required "
+                                                   "has-error']/div/div[@class='help-block']").text
+text_repeat_password_exp = 'Необходимо заполнить «Повторите пароль».'
+text_repeat_password_fact = driver.find_element(By.XPATH, "//div[@class='form-group field-signupform-repeat_password "
+                                                          "required has-error']/div/div[@class='help-block']").text
+assert text_name_fact == text_name_exp, f'неправильный текст для не введенного имя пользователя'
+assert text_email_fact == text_email_exp, f'неправильный текст для не введенного email'
+assert text_password_fact == text_password_exp, f'неправильный текст для не введенного пароля'
+assert text_repeat_password_fact == text_repeat_password_exp, f'неправильный текст для не введенного повторного пароля'
+driver.quit()
+
 
 '''4 Решить логическую задачку: Я кладу на стол 101 монету орлами вверх, и завязываю
 вам глаза. Я переворачиваю случайные 30 монет решками вверх.
