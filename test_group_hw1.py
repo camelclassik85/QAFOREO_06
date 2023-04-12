@@ -3,35 +3,32 @@ import time
 from selenium import webdriver
 from selenium.common import NoSuchElementException
 from selenium.webdriver import Keys
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-
-
+from webdriver_manager.chrome import ChromeDriverManager
 
 """Задания делать на сайте http://ts.red-promo.ru/
 1 Сделать поиск со словом "Стейк". Проверить что в карточках присутствует слово «Стейк»"""
 
-
-
-# driver = webdriver.Chrome(executable_path="driver\\chromedriver.exe")
+# driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 # driver.get("http://ts.red-promo.ru/")
 # time.sleep(1)
 # driver.find_element(By.XPATH, "//input[@name='keyword']").send_keys("Стейк", Keys.ENTER)
 # time.sleep(2)
 # search_list = [i.text.lower() for i in
-#                 driver.find_elements(By.XPATH, "//div[@class='pi-title fz-16 clr-text-alt m-b-10']")]
+#                driver.find_elements(By.XPATH, "//div[@class='pi-title fz-16 clr-text-alt m-b-10']")]
 # if driver.find_element(By.XPATH, "//li[@class='next']"):
 #     driver.find_element(By.XPATH, "//li[@class='next']").click()
 #     search_list += [i.text.lower() for i in
 #                     driver.find_elements(By.XPATH, "//div[@class='pi-title fz-16 clr-text-alt m-b-10']")]
 # for j, i in enumerate(search_list):
-#     assert "стейк" in i, f"element {j+1} do not have стейк in"
+#     assert "стейк" in i, f"element {j + 1} do not have стейк in"
 #
 # driver.quit()
 
-
 '''2 Проверить наличие этого свап контейнера'''
 
-# driver = webdriver.Chrome(executable_path="driver\\chromedriver.exe")
+# driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 # driver.get("http://ts.red-promo.ru/")
 # time.sleep(1)
 # try:
@@ -47,7 +44,7 @@ from selenium.webdriver.common.by import By
 '''3 Написать разнообразные проверки на форму регистрации (для проверки сообщений о
 правильности заполнении полей формы)'''
 
-driver = webdriver.Chrome(executable_path="driver\\chromedriver.exe")
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 driver.get("http://ts.red-promo.ru/")
 time.sleep(1)
 driver.find_element(By.XPATH, "(//span[@class='sci-amount'])[2]").click()
@@ -73,7 +70,6 @@ assert text_email_fact == text_email_exp, f'неправильный текст 
 assert text_password_fact == text_password_exp, f'неправильный текст для не введенного пароля'
 assert text_repeat_password_fact == text_repeat_password_exp, f'неправильный текст для не введенного повторного пароля'
 driver.quit()
-
 
 '''4 Решить логическую задачку: Я кладу на стол 101 монету орлами вверх, и завязываю
 вам глаза. Я переворачиваю случайные 30 монет решками вверх.
